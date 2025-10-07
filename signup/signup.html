@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TeamUp — 회원가입</title>
+  <link rel="stylesheet" href="signup.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#2f6bed">
+  <meta name="description" content="TeamUp 회원가입 페이지">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a class="brand" href="#">
+        <span class="brand__mark" aria-hidden="true">TU</span>
+        TeamUp
+      </a>
+      <div class="nav__cta">
+        <a class="btn btn--ghost" href="index.html#login">로그인</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 바로 회원가입 카드 -->
+  <main class="container" role="main">
+    <section class="auth-card auth-card--compact" aria-labelledby="signup-title">
+      <div class="auth-card__head">
+        <span class="step-badge">계정 만들기</span>
+        <h1 id="signup-title">회원가입</h1>
+        <p class="desc">이미 계정이 있다면 <a href="index.html#login">로그인</a>으로 이동하세요.</p>
+      </div>
+
+      <form class="form" action="/signup" method="post">
+        <div class="field with-icon icon-user">
+          <label for="name">이름</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="홍길동" required />
+        </div>
+
+        <div class="field with-icon icon-mail">
+          <label for="email">이메일</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+            placeholder="teamup@example.com" required />
+        </div>
+
+        <div class="field with-icon icon-lock">
+          <label for="password">비밀번호</label>
+          <input id="password" name="password" type="password" minlength="8" autocomplete="new-password"
+            placeholder="8자 이상" required />
+        </div>
+
+        <div class="field with-icon icon-lock">
+          <label for="confirm">비밀번호 확인</label>
+          <input id="confirm" name="confirm" type="password" minlength="8" autocomplete="new-password"
+            placeholder="다시 입력" required />
+        </div>
+
+        <div class="field select-field">
+          <label for="role">관심 역할 (선택)</label>
+          <select id="role" name="role">
+            <option value="">선택 안 함</option>
+            <option>기획</option>
+            <option>디자인</option>
+            <option>프론트엔드</option>
+            <option>백엔드</option>
+            <option>데이터/AI</option>
+            <option>마케팅</option>
+          </select>
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" name="tos" required />
+          <span>안내사항을 확인했고 가입에 동의합니다.</span>
+        </label>
+
+        <button type="submit" class="btn btn--primary btn--xl">회원가입</button>
+      </form>
+
+      <ul class="checklist" aria-label="TeamUp 주요 기능">
+        <li>모집글 등록 / 수정 / 삭제</li>
+        <li>카드·리스트로 탐색</li>
+        <li>내 게시물 간편 관리</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <small>© <span id="year"></span> TeamUp. All rights reserved.</small>
+      <small>문의: <a href="mailto:teamup.contact@gmail.com">teamup.contact@gmail.com</a></small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
