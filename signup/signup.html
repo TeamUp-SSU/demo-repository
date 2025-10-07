@@ -21,18 +21,18 @@
         TeamUp
       </a>
       <div class="nav__cta">
-        <a class="btn btn--ghost" href="index.html#login">로그인</a>
+        <a class="btn btn--ghost" href="../login/login.html">로그인</a>
       </div>
     </div>
   </header>
 
-  <!-- 바로 회원가입 카드 -->
+  <!-- 회원가입 카드 -->
   <main class="container" role="main">
     <section class="auth-card auth-card--compact" aria-labelledby="signup-title">
       <div class="auth-card__head">
         <span class="step-badge">계정 만들기</span>
         <h1 id="signup-title">회원가입</h1>
-        <p class="desc">이미 계정이 있다면 <a href="index.html#login">로그인</a>으로 이동하세요.</p>
+        <p class="desc">이미 계정이 있다면 <a href="../login/login.html">로그인</a>으로 이동하세요.</p>
       </div>
 
       <form class="form" action="/signup" method="post">
@@ -57,19 +57,6 @@
           <label for="confirm">비밀번호 확인</label>
           <input id="confirm" name="confirm" type="password" minlength="8" autocomplete="new-password"
             placeholder="다시 입력" required />
-        </div>
-
-        <div class="field select-field">
-          <label for="role">관심 역할 (선택)</label>
-          <select id="role" name="role">
-            <option value="">선택 안 함</option>
-            <option>기획</option>
-            <option>디자인</option>
-            <option>프론트엔드</option>
-            <option>백엔드</option>
-            <option>데이터/AI</option>
-            <option>마케팅</option>
-          </select>
         </div>
 
         <label class="checkbox">
