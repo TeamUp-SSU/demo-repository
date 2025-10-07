@@ -111,12 +111,6 @@ a:hover {
     font-size: 14px;
 }
 
-.nav__links {
-    display: none;
-    gap: 20px;
-    color: var(--muted);
-}
-
 .nav__cta {
     display: flex;
     gap: 10px;
