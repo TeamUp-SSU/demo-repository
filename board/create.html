@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TeamUp - 팀원 모집 작성/수정/삭제</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="create.css" />
+
+</head>
+<body>
+
+<header class="hero">
+    <div class="container hero-inner">
+        <div class="hero-left">
+            <h1>TeamUp으로<br>딱 맞는 팀원을 빠르게</h1>
+            <p>대외활동, 공모전, 사이드 프로젝트까지. 팀원을 모집하고 관리하세요.</p>
+        </div>
+        <div class="hero-right">TeamUp</div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="card" role="region" aria-labelledby="formTitle">
+        <form id="postForm" class="form-panel" onsubmit="return false;">
+            <h2 id="formTitle">팀원 모집 글 작성</h2>
+            <h2 id="formTitle2">팀원 모집 글 수정</h2>
+            <div class="field">
+                <label for="title">제목</label>
+                <input id="title" type="text" placeholder="프로젝트 / 활동 제목을 입력하세요" required />
+            </div>
+
+            <div class="row">
+                <div class="col field">
+                    <label for="category">카테고리</label>
+                    <select id="category">
+                        <option value="개발">개발</option>
+                        <option value="디자인">디자인</option>
+                        <option value="기획">기획</option>
+                        <option value="마케팅">마케팅</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+                <div class="col field">
+                    <label for="positions">모집 인원</label>
+                    <input id="positions" type="number" min="1" placeholder="예: 2" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col field">
+                    <label for="startDate">활동 시작일</label>
+                    <input id="startDate" type="date" />
+                </div>
+                <div class="col field">
+                    <label for="endDate">활동 종료일</label>
+                    <input id="endDate" type="date" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="description">소개 (필수)</label>
+                <textarea id="description" placeholder="프로젝트 소개, 기대 역할, 활동 빈도 등을 적어주세요" required></textarea>
+            </div>
+
+            <div class="field">
+                <label>모집 조건 (태그로 추가)</label>
+                <div id="tags" class="tags" aria-live="polite">
+                    <input id="tagInput" class="tag-input" placeholder="예: React, Figma, 주 2회" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col field">
+                    <label for="contactMethod">연락 방법</label>
+                    <select id="contactMethod">
+                        <option value="카카오톡">카카오톡</option>
+                        <option value="이메일">이메일</option>
+                        <option value="링크">링크(포트폴리오 등)</option>
+                    </select>
+                </div>
+                <div class="col field">
+                    <label for="contactInfo">연락처 / 링크</label>
+                    <input id="contactInfo" type="text" placeholder="카카오톡ID / 이메일 / 링크를 입력하세요" />
+                </div>
+            </div>
+
+            <input type="hidden" id="editingId" value="" />
+
+            <div class="actions">
+                <button id="submitBtn" class="btn btn-primary" type="submit">등록</button>
+            </div>
+        </form>
+
+        <!-- 미리보기 -->
+        <aside class="preview-panel" aria-label="미리보기">
+            <h3>미리보기</h3>
+            <div id="postPreview" class="post-card">
+                <div class="meta">카테고리 · 모집 인원 · 기간</div>
+                <h4>제목이 여기에 표시됩니다</h4>
+                <div class="meta">작성자 · 날짜</div>
+                <p>프로젝트 소개 내용이 여기 미리보기에 표시됩니다. 작성하면서 변경사항이 실시간 반영됩니다.</p>
+            </div>
+        </aside>
+    </div>
+
+</main>
+
+<script src="create.js"></script>
+</body>
+</html>

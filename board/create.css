@@ -1,0 +1,200 @@
+
+:root{
+    --bg:#f4fbff;
+    --hero-start:#E6F3FF;
+    --hero-end:#EAF7FF;
+    --primary:#1E60FF;
+    --primary-2:#2962FF;
+    --card-bg:#ffffff;
+    --muted:#9aa8b6;
+    --shadow: 0 12px 30px rgba(14,39,87,0.08);
+    --radius:14px;
+    --container:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family: "Noto Sans KR", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:linear-gradient(180deg,var(--bg), #fafcff 60%);
+    color:#0f2130;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Hero */
+.hero{
+    background: linear-gradient(180deg,var(--hero-start), var(--hero-end));
+    padding:48px 16px 36px;
+    position:relative;
+    overflow:hidden;
+}
+.container{
+    width:100%;
+    max-width:var(--container);
+    margin:0 auto;
+}
+.hero-inner{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    justify-content:space-between;
+}
+.hero-left h1{
+    margin:0 0 12px 0;
+    font-size:36px;
+    line-height:1.05;
+    color:#0b314f;
+    font-weight:700;
+}
+.hero-left p{
+    margin:0;
+    color:var(--muted);
+}
+.hero-right{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background: radial-gradient(circle at 25% 25%, #fff, #eef8ff 60%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 18px 40px rgba(25,84,150,0.08);
+    color:var(--primary);
+    font-weight:700;
+}
+
+/* Card area */
+main{ padding:28px 16px 80px; }
+.card{
+    background:var(--card-bg);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px;
+    display:flex;
+    gap:22px;
+    align-items:flex-start;
+    overflow:visible;
+}
+
+/* form panel */
+.form-panel{
+    flex:1.2;
+    min-width:320px;
+}
+.form-panel h2{
+    margin:0 0 12px 0;
+    font-size:20px;
+    color:#0b2a45;
+}
+.field{
+    margin-bottom:12px;
+}
+label{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px;
+}
+input[type="text"], input[type="number"], select, textarea, input[type="date"]{
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #e6eef6;
+    background:#fbfdff;
+    outline:none;
+    font-size:14px;
+    color:#0d2433;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+textarea{ min-height:120px; resize:vertical; }
+
+.row{
+    display:flex;
+    gap:12px;
+}
+.row .col{ flex:1; }
+
+/* tag input */
+.tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    align-items:center;
+    padding:8px;
+    border-radius:10px;
+    border:1px dashed #e6eef6;
+    background:#fbfdff;
+}
+.tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#eef6ff;
+    color:var(--primary-2);
+    font-size:13px;
+}
+
+.tag-input{
+    border:none;
+    outline:none;
+    min-width:120px;
+    font-size:14px;
+    color:#0d2433;
+    background:transparent;
+}
+
+/* preview panel */
+.preview-panel{
+    flex:0.9;
+    min-width:300px;
+    padding:18px;
+    border-radius:10px;
+    background: linear-gradient(180deg,#fbfdff,#f7fbff);
+    border:1px solid #eef6fb;
+    height:100%;
+}
+.preview-panel h3{ margin:0 0 10px 0; font-size:15px; color:#0b314f; }
+.post-card{
+    background: #fff;
+    border-radius:12px;
+    padding:14px;
+    box-shadow: 0 6px 18px rgba(14,39,87,0.03);
+    font-size:14px;
+    color:#0b2a45;
+}
+.post-card .meta{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+.post-card h4{ margin:6px 0; }
+.post-card p{ margin:8px 0 0 0; color:#334a5a; font-size:14px; white-space:pre-wrap; }
+
+/* action buttons */
+.actions{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+.btn{
+    padding:10px 18px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+}
+.btn-primary{
+    background:linear-gradient(180deg,var(--primary), var(--primary-2));
+    color:#fff;
+    box-shadow: 0 8px 18px rgba(46,86,255,0.16);
+}
+
+.post-item h4{ margin:0 0 6px 0; font-size:16px; color:#08243a }
+.post-item .meta{ margin-bottom:10px; color:var(--muted); font-size:13px }
+
+/* responsive */
+@media (max-width:980px){
+    .hero-inner{ flex-direction:column; gap:18px; align-items:flex-start; }
+    .hero-right{ width:160px; height:160px; }
+    .card{ flex-direction:column; padding:18px; }
+}
