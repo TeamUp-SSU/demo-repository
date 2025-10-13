@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TeamUp — 회원정보 수정</title>
-  <link rel="stylesheet" href="mypage.css" />
+  <link rel="stylesheet" href="profile.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#2f6bed">
   <meta name="description" content="TeamUp 회원정보 수정 페이지">
 </head>
+
 <body>
   <!-- 헤더 -->
   <header class="nav" role="banner">
@@ -38,12 +40,10 @@
 
         <div class="grid-2">
           <div class="avatar">
-            <div class="avatar__preview" aria-hidden="true">IMG</div>
-            <label class="file">
-              <input type="file" name="avatar" accept="image/*">
-              <span>프로필 이미지 업로드</span>
-            </label>
-            <p class="hint">정사각형 이미지를 권장해요 (최대 2MB).</p>
+            <figure class="avatar__preview">
+              <img src="image.png" alt="프로필 이미지" />
+            </figure>
+            <p class="hint">프로필</p>
           </div>
 
           <div class="stack">
@@ -55,7 +55,8 @@
             <div class="field with-icon icon-mail">
               <label for="email">이메일</label>
               <!-- 이메일은 일반적으로 식별자라 읽기 전용을 많이 사용 -->
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="teamup@example.com" readonly>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="teamup@example.com"
+                readonly>
               <p class="hint">이메일 변경이 필요하면 문의 메일로 연락해주세요.</p>
             </div>
 
@@ -110,17 +111,20 @@
         <div class="grid-3">
           <div class="field with-icon icon-lock">
             <label for="current">현재 비밀번호</label>
-            <input id="current" name="current_password" type="password" autocomplete="current-password" placeholder="현재 비밀번호">
+            <input id="current" name="current_password" type="password" autocomplete="current-password"
+              placeholder="현재 비밀번호">
           </div>
 
           <div class="field with-icon icon-lock">
             <label for="newpass">새 비밀번호</label>
-            <input id="newpass" name="new_password" type="password" minlength="8" autocomplete="new-password" placeholder="8자 이상">
+            <input id="newpass" name="new_password" type="password" minlength="8" autocomplete="new-password"
+              placeholder="8자 이상">
           </div>
 
           <div class="field with-icon icon-lock">
             <label for="confirm">새 비밀번호 확인</label>
-            <input id="confirm" name="confirm_password" type="password" minlength="8" autocomplete="new-password" placeholder="다시 입력">
+            <input id="confirm" name="confirm_password" type="password" minlength="8" autocomplete="new-password"
+              placeholder="다시 입력">
           </div>
         </div>
 
@@ -165,4 +169,5 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
