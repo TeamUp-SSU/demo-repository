@@ -252,7 +252,7 @@ select:focus {
   color: #7c889a
 }
 
-/* select 화살표 (CDN) */
+/* select 화살표 */
 select {
   appearance: none;
   padding-right: 42px;
