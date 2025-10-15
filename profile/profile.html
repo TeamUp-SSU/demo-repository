@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TeamUp — 회원정보 수정</title>
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#2f6bed">
+  <meta name="description" content="TeamUp 회원정보 수정 페이지">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a class="brand" href="#">
+        <span class="brand__mark" aria-hidden="true">TU</span>
+        TeamUp
+      </a>
+      <div class="nav__cta">
+        <a class="btn btn--ghost" href="index.html#login">로그아웃</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 프로필 편집 카드 -->
+  <main class="container" role="main">
+    <form class="profile-card" action="/profile/update" method="post">
+      <header class="profile-card__head">
+        <h1>회원정보 수정</h1>
+        <p class="desc">로그인/회원가입 때 입력한 정보를 변경할 수 있어요.</p>
+      </header>
+
+      <!-- 기본 정보 -->
+      <section class="section" aria-labelledby="sec-basic">
+        <h2 id="sec-basic" class="section__title">기본 정보</h2>
+
+        <div class="grid-2">
+          <div class="avatar">
+            <figure class="avatar__preview">
+              <img src="image.png" alt="프로필 이미지" />
+            </figure>
+            <p class="hint">기본 프로필</p>
+          </div>
+
+          <div class="stack">
+            <div class="field with-icon icon-user">
+              <label for="name">이름</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="홍길동" required>
+            </div>
+
+            <div class="field with-icon icon-mail">
+              <label for="email">이메일</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="teamup@example.com"
+                readonly>
+              <p class="hint">이메일 변경이 필요하면 문의 메일로 연락해주세요.</p>
+            </div>
+
+            <div class="field select-field">
+              <label for="role">주요 역할</label>
+              <select id="role" name="role">
+                <option value="">선택 안 함</option>
+                <option>기획</option>
+                <option>디자인</option>
+                <option>프론트엔드</option>
+                <option>백엔드</option>
+                <option>데이터/AI</option>
+                <option>마케팅</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 자기소개 & 보유 스킬 -->
+      <section class="section" aria-labelledby="sec-profile">
+        <h2 id="sec-profile" class="section__title">프로필</h2>
+
+        <div class="field">
+          <label for="bio">한 줄 소개 (선택)</label>
+          <input id="bio" name="bio" type="text" placeholder="예) React 좋아하는 프론트엔드 개발자">
+        </div>
+
+        <div class="field">
+          <label for="skills">보유 스킬 (쉼표 구분, 선택)</label>
+          <input id="skills" name="skills" type="text" placeholder="예) React, Figma, Spring, Python">
+          <p class="hint">예: React, Node.js, Django, UX 리서치, 데이터분석</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="field with-icon icon-link">
+            <label for="link1">포트폴리오/링크 1 (선택)</label>
+            <input id="link1" name="link1" type="url" placeholder="https://example.com">
+          </div>
+
+          <div class="field with-icon icon-link">
+            <label for="link2">링크 2 (선택)</label>
+            <input id="link2" name="link2" type="url" placeholder="https://github.com/username">
+          </div>
+        </div>
+      </section>
+
+      <!-- 비밀번호 변경 -->
+      <section class="section" aria-labelledby="sec-password">
+        <h2 id="sec-password" class="section__title">비밀번호 변경</h2>
+
+        <div class="field with-icon icon-lock">
+          <label for="current">현재 비밀번호</label>
+          <input id="current" name="current_password" type="password" autocomplete="current-password"
+            placeholder="현재 비밀번호">
+        </div>
+
+        <div class="field with-icon icon-lock">
+          <label for="newpass">새 비밀번호</label>
+          <input id="newpass" name="new_password" type="password" minlength="8" autocomplete="new-password"
+            placeholder="8자 이상">
+        </div>
+
+        <div class="field with-icon icon-lock">
+          <label for="confirm">새 비밀번호 확인</label>
+          <input id="confirm" name="confirm_password" type="password" minlength="8" autocomplete="new-password"
+            placeholder="다시 입력">
+        </div>
+
+        <p class="hint">비밀번호를 바꾸지 않으려면 위 칸을 비워두세요.</p>
+      </section>
+
+      <!-- 액션 -->
+      <div class="actions">
+        <button type="button" class="btn btn--ghost" onclick="history.back()">취소</button>
+        <button type="submit" class="btn btn--primary">변경사항 저장</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <small>© <span id="year"></span> TeamUp. All rights reserved.</small>
+      <small>문의: <a href="mailto:teamup.contact@gmail.com">teamup.contact@gmail.com</a></small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
