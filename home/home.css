@@ -46,7 +46,7 @@ body {
 }
 
 .header-main-bar {
-  background-color: #f0f7ff; /* Same as the top bar */
+  background-color: #f0f7ff;
   padding: 1rem 0;
 }
 
@@ -85,7 +85,7 @@ body {
   font-size: 14px;
 }
 .main-nav {
-  display: none; /* Hidden on mobile */
+  display: none;
 }
 
 .main-nav ul {
@@ -99,6 +99,46 @@ body {
   color: #333;
   font-weight: bold;
   font-size: 1rem;
+}
+
+/* === Main Navigation Underline Animation === */
+.main-nav ul li {
+  position: relative;
+  list-style: none;
+}
+
+.main-nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+/* 밑줄 기본 상태 (숨김) */
+.main-nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #2f6bed;
+  transition: transform 0.3s ease;
+}
+
+/* hover 시 밑줄 확장 */
+.main-nav ul li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* hover 시 글자 색상도 살짝 강조 */
+.main-nav ul li a:hover {
+  color: #2f6bed;
 }
 
 .search-icon {
@@ -186,10 +226,11 @@ body {
   border-radius: 8px;
   text-align: left;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
 .company-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -205,7 +246,7 @@ body {
 
 /* === Trending Teams Section === */
 .trending-teams-section {
-  background-color: #f9fbff;
+  background-color: #f7f9fc;
   padding: 3rem 0;
 }
 
@@ -261,26 +302,34 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 1rem 0;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.trending-track.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
 }
 
 .trending-track::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 /* Team cards */
 .team-card {
-  min-width: 280px;
+  width: 20rem;
+  flex: 0 0 auto;
   background: white;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
 .team-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-20px);
 }
 
 .team-card img {
@@ -491,6 +540,105 @@ body {
   margin-bottom: 1rem;
 }
 
+/* === TeamUp Info Section === */
+.teamup-info-section {
+  background-color: #f7f9fc;
+  padding: 4rem 0;
+  border-top: none;
+  margin-top: -2rem;
+}
+
+.teamup-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  height: 10vh;
+  padding-top: 50px;
+  min-height: 20vh;
+}
+
+.info-left,
+.info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-left h2 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.info-left p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter input {
+  flex: 1;
+  width: 320px;
+  padding: 0.8rem 1rem;
+  border: 1px solid #cfd8e3;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.newsletter button {
+  background-color: #2f6bed;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background-color: #1f56d8;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.quick-links a {
+  color: #2f6bed;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}
+
+.info-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-right img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
 /* Footer */
 .footer {
   background-color: #333;
@@ -501,7 +649,6 @@ body {
 
 /* --- Media Queries for Responsiveness --- */
 
-/* Tablets (landscape) and Desktops */
 @media (min-width: 768px) {
   .header-main-content {
     justify-content: space-around;
